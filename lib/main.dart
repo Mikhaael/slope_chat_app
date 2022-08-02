@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slope_chat_app/screens/sign_in_screen.dart';
-import 'package:slope_chat_app/screens/splash_screen.dart';
+import 'package:slope_chat_app/screens/welcome_screen.dart';
 import 'package:slope_chat_app/utilis/designs/colors.dart';
 
 void main() {
