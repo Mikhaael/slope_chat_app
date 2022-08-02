@@ -1,0 +1,1 @@
+enum SocialButton { google, apple, twitter }
