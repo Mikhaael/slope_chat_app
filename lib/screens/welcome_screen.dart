@@ -1,11 +1,13 @@
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:slope_chat_app/components/buttons.dart';
 import 'package:slope_chat_app/components/spacers.dart';
+import 'package:slope_chat_app/models/pages.dart';
 import 'package:slope_chat_app/utilis/designs/assets.dart';
 import 'package:slope_chat_app/utilis/designs/colors.dart';
 import 'package:slope_chat_app/utilis/designs/styles.dart';
 import 'package:slope_chat_app/utilis/res/res_profile.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,23 +16,52 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+    controller.forward();
+    controller.addListener(() {});
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   final double space = 18;
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
+          backgroundColor: animation.value,
           body: Material(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Image(
-                      image: AssetImage(Assets.cignifiLogo),
-                      width: 150.0,
-                      height: 100.0,
+                  Hero(
+                    tag: 'cignifi',
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Image(
+                        image: AssetImage(Assets.cignifiLogo),
+                        width: 160.0,
+                        height: 120.0,
+                      ),
                     ),
                   ),
                   vSpace(space / 3),
@@ -50,13 +81,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: sPrimaryTextStyle,
                           ),
                           vSpace(space / 3),
-                          Text(
-                            ResWelcomePage.welcomeMessage,
-                            style: sWelComeMessageTextStyle,
+                          AnimatedTextKit(
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                  ResWelcomePage.welcomeMessage,
+                                  textStyle: sWelComeMessageTextStyle)
+                            ],
                           ),
                           vSpace(space * 4),
                           primaryButton(
-                            onClick: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, SlopeChatApp.signInPath);
+                            },
                             text: ResWelcomePage.logIn,
                             textColor: Colors.white,
                             fillColor: kPrimaryColor,
@@ -64,7 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           vSpace(space),
                           primaryButton(
                             text: ResWelcomePage.signUp,
-                            onClick: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, SlopeChatApp.sigUpPath);
+                            },
                             fillColor: Colors.white,
                             textColor: kPrimaryColor,
                           )

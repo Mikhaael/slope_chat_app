@@ -7,7 +7,6 @@ final sPrimaryTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
         fontWeight: FontWeight.w700, fontSize: 26, color: Colors.black));
 
-
 final sWelComeMessageTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(
   wordSpacing: 4,
@@ -15,10 +14,10 @@ final sWelComeMessageTextStyle = GoogleFonts.openSans(
   fontSize: 13,
   color: Colors.grey,
 ));
-const kSendButtonTextStyle = TextStyle(
-  color: Colors.lightBlueAccent,
+const sForgorPassoword = TextStyle(
+  color: Colors.black,
   fontWeight: FontWeight.bold,
-  fontSize: 18.0,
+  fontSize: 14.0,
 );
 
 const kMessageTextFieldDecoration = InputDecoration(

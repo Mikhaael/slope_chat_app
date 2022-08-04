@@ -1,0 +1,116 @@
+Return-Path: <mikhaeelogunsanya77@gmail.com>
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id A3AF1122FC5;
+	Mon,  1 Aug 2022 15:31:51 +0000 (UTC)
+Received: from cp4.tn.oxa.host (unknown [127.0.0.6])
+	(Authenticated sender: hou0m1ab3q)
+	by relay.mailchannels.net (Postfix) with ESMTPA id D1EBF1224F2;
+	Mon,  1 Aug 2022 15:31:43 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1659367905; a=rsa-sha256;
+	cv=none;
+	b=xJ/3haAl6ikdWSSqFuADggRW1gTE8IuSdeErAFr/LaiRSMsDWkpB/SQgMIaTq2f0VvEKl8
+	YAsY38aY2/txfSnmhuOA08/NVljO2R4rG3fSjeWIWrk11hh/u0TND2F0sM2ujSCvyMH/VW
+	vOt6//NR2yVzK+AHm55yVktGSURXVmRXIh14xuXfpCSt0TueUovGlB2yfdcIXQxZxF342F
+	odPssY4+1oSwOIltgAERAkuaLI4zThkd4zTjBgiuO2Io7fD6d41js/H852cUS0whZ8KgZQ
+	08Jao44plSbF6gY477/jiujGBoiC4DHp4/Aot9WfS0shLLQDjY7rLb82K7XRTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1659367905;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 dkim-signature; bh=VfhSKHqOVx6DdzeN5RnphtqFnsndNFS228K7NPGmY7E=;
+	b=kxLKpwME6zBP+iJZ+NRtVtSnVT7xxp8ti7/4eUSaG/R5TLtdGC8HXveklDOdCQqRArseGO
+	0zripfVxu8PMosIK1taY1vXgvmEXOJjK1upoREu3s86gLB757eOWqC/2z/RZ4ktDht435w
+	WOrsBn7AvOVGX4oLZGKOCqx+B8QXlSyWa+2V+7hj6NNoEPS4hqcae3NiPh3loXfEljfJdl
+	yjrA3CZAybUilRNSvXWI/ZnCSvsbSW2RHmfgvnn17I48MDKDNp0+HZX612iIj7J4KI1RT2
+	9bFcMZuuqLGjdiHs9MbRGeu9mNKxeEbpp2dlJTtOH/q3hTf4jPXhApPHTFm6Ew==
+ARC-Authentication-Results: i=1;
+	rspamd-7c478d8c66-hxgtz;
+	auth=pass smtp.auth=hou0m1ab3q smtp.mailfrom=mikhaeelogunsanya77@gmail.com
+X-Sender-Id: _forwarded-from|209.85.215.172
+X-MC-Relay: Junk
+X-MailChannels-SenderId: _forwarded-from|209.85.215.172
+X-MailChannels-Auth-Id: hou0m1ab3q
+X-Obese-Tart: 47b54b352a18e815_1659367906064_100055579
+X-MC-Loop-Signature: 1659367906064:2769122863
+X-MC-Ingress-Time: 1659367906063
+Received: from cp4.tn.oxa.host (cp4.tn.oxa.host [102.219.176.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384)
+	by 100.110.28.208 (trex/6.7.1);
+	Mon, 01 Aug 2022 15:31:46 +0000
+Received: from mail-pg1-f172.google.com ([209.85.215.172]:42785)
+	by cp4.tn.oxa.host with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <mikhaeelogunsanya77@gmail.com>)
+	id 1oIXOM-00Fyxk-GB
+	for contact@lab619.tn;
+	Mon, 01 Aug 2022 16:31:40 +0100
+Received: by mail-pg1-f172.google.com with SMTP id i71so4461096pge.9
+        for <contact@lab619.tn>; Mon, 01 Aug 2022 08:31:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=VfhSKHqOVx6DdzeN5RnphtqFnsndNFS228K7NPGmY7E=;
+        b=m+gM93E++hcfmFZy3aazieL651CMmHLYvB41BypTuzgTxrG/RGugWFjQSPvxO2kSG9
+         BdLzM2rbziL/5sVZLqm8cYnQtkY1aa7FfQoIxsLHK8w9PmgGbW6HSjSHaxeXLMcWXX0F
+         u1/oQ/FG082ZYbNViCDERmew6FVzinr8+xN7hh5/VDiB4UYLPA835DtvEwPXlKP1sVbC
+         9WwBW+Y+OjZBHacekaeRhkL5t3hoiFbRkv7gzfqNWYECtzgpIKN+dKXzsOoiYUdWAQUB
+         +Cig0GqydlOVfapBxvWp7WAW+9a1Lsc0DoxerjorBxNpR3rMNoyKnTuqhneSPozkGweR
+         F9Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=VfhSKHqOVx6DdzeN5RnphtqFnsndNFS228K7NPGmY7E=;
+        b=j3sZHn6NOKfkFVulAXcPrC0CZmVSzq/WjwsnVHHwlvPeG0Sk5swl98cGruNJBl6fRI
+         6UyBOJSni80OSoS4mKd89yhUn1MZ55AptZmdZRQCRGanB8Qg285kIh+G8t9SAJyOKrAs
+         Kr0rA99kkuWMTpsVTNqZmfXBqGiA5I5YUaQz0ncl1WZZBetDi6q3tOchC19cIueHh7+D
+         Hj6F0RxrjnB0u3Bt5BI4E76hjG3lO0qD6BKBq+MwQ/D+vV0pyIiUQPTO4aTW6CbYB3J5
+         SX6JSJzxBFkMXd2QsCx0VyUxoEj3sfMdjaXCZ7RXYChsoAc8XYw6pehXqx2v3NdL1ph7
+         krMw==
+X-Gm-Message-State: AJIora+gjz9ZnD6V8vjhXUSUxRoPMyd44kKdckwDxVhNzzSYb+P3oUBO
+	mpvbtfGkGUGwJFEbcrGkuicuc7s2McIU5HUDTeK+6iErB2w=
+X-Google-Smtp-Source: AGRyM1vu5UQL/gccqn2n5v/LcmZ9s7ZFebGfy84cvXTNsPAOeRywC7AO0cHqEyqxYgeV/fpn8yLnZ4yzcqv1hG72Xsk=
+X-Received: by 2002:a63:1648:0:b0:41a:49f9:77ae with SMTP id
+ 8-20020a631648000000b0041a49f977aemr13762398pgw.377.1659367855876; Mon, 01
+ Aug 2022 08:30:55 -0700 (PDT)
+MIME-Version: 1.0
+From: MIKHAEEL OGUNSANYA <mikhaeelogunsanya77@gmail.com>
+Date: Mon, 1 Aug 2022 16:30:43 +0100
+Message-ID: <CAH0t0m9nChNCAU2unPKwLPT+eoW_jwtxsAQZRJmab_U=65bLhw@mail.gmail.com>
+Subject: 
+To: contact@lab619.tn
+Content-Type: multipart/mixed; boundary="0000000000009a042005e52faf72"
+X-Spam-Status: No, score=2.3
+X-Spam-Score: 23
+X-Spam-Bar: ++
+X-Ham-Report: Spam detection software, running on the system "cp4.tn.oxa.host",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  
+ Content analysis details:   (2.3 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.2 KAM_BLANKSUBJECT       Message has a blank Subject
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [mikhaeelogunsanya77[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+                             in digit
+                             [mikhaeelogunsanya77[at]gmail.com]
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  2.0 PYZOR_CHECK            Listed in Pyzor
+                             (https://pyzor.readthedocs.io/en/latest/)
+  0.0 FSL_BULK_SIG           Bulk signature with no Unsubscribe
+  0.0 T_FREEMAIL_DOC_PDF     MS document or PDF attachment, from freemail
+X-Spam-Flag: NO
+X-AuthUser: 
