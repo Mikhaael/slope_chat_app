@@ -7,6 +7,8 @@ import 'package:slope_chat_app/utilis/designs/assets.dart';
 import 'package:slope_chat_app/utilis/designs/colors.dart';
 import 'package:slope_chat_app/utilis/designs/styles.dart';
 import 'package:slope_chat_app/utilis/res/res_profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:email_validator/email_validator.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -16,7 +18,14 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  // final _auth = FirebaseAuth.instance;
+
   final double space = 18;
+
+  // late String fullName;
+  late String email;
+  // late String password;
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final fullNameController = TextEditingController();
@@ -33,6 +42,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: null,
+          actions: <Widget>[],
+          backgroundColor: kPrimaryColor,
+        ),
         body: Material(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -62,24 +76,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: sPrimaryTextStyle.copyWith(
                       fontSize: 20.0, color: Colors.grey),
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.5),
                 TextFormField(
                   controller: fullNameController,
                   cursorColor: Colors.black,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPrimaryColor, width: 2),
+                    ),
                     icon: const Icon(Icons.person),
                     labelText: ResSignUpPage.fullName,
                     labelStyle: sWelComeMessageTextStyle,
                   ),
+                  onChanged: (value) {
+                    // fullName = value;
+                  },
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.4),
                 TextFormField(
                   controller: emailController,
                   cursorColor: Colors.black,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPrimaryColor, width: 2),
+                    ),
                     suffixIcon: emailController.text.isEmpty
                         ? Container(
                             width: 0,
@@ -92,27 +115,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     labelText: ResSignInPage.email,
                     labelStyle: sWelComeMessageTextStyle,
                   ),
+                  onChanged: (value) {
+                    // email = value;
+                  },
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.4),
                 TextFormField(
                   controller: passwordController,
                   cursorColor: Colors.black,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPrimaryColor, width: 2),
+                    ),
                     icon: const Icon(Icons.lock),
                     labelText: ResSignInPage.password,
                     labelStyle: sWelComeMessageTextStyle,
                   ),
                   obscuringCharacter: '*',
                   obscureText: true,
+                  onChanged: (value) {
+                    // password = value;
+                  },
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.5),
                 primaryMediumButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    // try {
+                    //   final newUser =
+                    //       await _auth.createUserWithEmailAndPassword(
+                    //           email: email, password: password);
+                    //   if (newUser != null) {
+                    Navigator.pushNamed(context, SlopeChatApp.salePath);
+                    //   }
+                    // } catch (e) {}
+                  },
                   icon: Icons.person_add_alt_1_rounded,
                   text: ResSignUpPage.signUp,
                 ),
-                vSpace(space * 3),
+                vSpace(space * 2),
                 Row(
                   children: [
                     const Expanded(
@@ -133,7 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ],
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.5),
                 Text(
                   ResSignUpPage.socialMediaSignUp,
                   style: sWelComeMessageTextStyle.copyWith(

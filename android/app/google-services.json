@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862529495388",
+    "project_id": "business-chat-app-bd568",
+    "storage_bucket": "business-chat-app-bd568.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862529495388:android:65a6bcf0311f89f1186199",
+        "android_client_info": {
+          "package_name": "com.mikhaeel.slope_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862529495388-ko3422h08426ju81ll80d7451e4th87u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjPsf8ZbivPDp9DMk8ja3JhzgGsZ7W_Ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862529495388-ko3422h08426ju81ll80d7451e4th87u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slope_chat_app/models/pages.dart';
+import 'package:slope_chat_app/screens/sale_screen.dart';
 import 'package:slope_chat_app/screens/sign_in_screen.dart';
 import 'package:slope_chat_app/screens/sign_up_screen.dart';
 import 'package:slope_chat_app/screens/welcome_screen.dart';
@@ -15,12 +16,14 @@ class CignifiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // theme: ThemeData.light(),
       initialRoute: SlopeChatApp.welcomePath,
       routes: {
         SlopeChatApp.welcomePath: (context) => const HomeScreen(),
         SlopeChatApp.signInPath: (context) => const SignInScreen(),
         SlopeChatApp.sigUpPath: (context) => const SignUpScreen(),
+        SlopeChatApp.salePath: (context) => const SaleScreen()
       },
     );
   }

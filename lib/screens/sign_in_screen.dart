@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:slope_chat_app/components/spacers.dart';
@@ -33,6 +35,11 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: null,
+          actions: <Widget>[],
+          backgroundColor: kPrimaryColor,
+        ),
         body: Material(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -62,13 +69,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   style: sPrimaryTextStyle.copyWith(
                       fontSize: 20.0, color: Colors.grey),
                 ),
-                vSpace(space * 3),
+                vSpace(space * 1.5),
                 TextFormField(
                   controller: emailController,
                   cursorColor: Colors.black,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPrimaryColor, width: 2),
+                    ),
                     suffixIcon: emailController.text.isEmpty
                         ? Container(
                             width: 0,
@@ -82,12 +92,15 @@ class _SignInScreenState extends State<SignInScreen> {
                     labelStyle: sWelComeMessageTextStyle,
                   ),
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.4),
                 TextFormField(
                   controller: passwordController,
                   cursorColor: Colors.black,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kPrimaryColor, width: 2),
+                    ),
                     icon: const Icon(Icons.lock),
                     labelText: ResSignInPage.password,
                     labelStyle: sWelComeMessageTextStyle,
@@ -95,9 +108,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   obscuringCharacter: '*',
                   obscureText: true,
                 ),
-                vSpace(space * 3),
+                vSpace(space * 2),
                 primaryMediumButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SlopeChatApp.salePath);
+                  },
                   icon: Icons.lock_open,
                   text: ResWelcomePage.logIn,
                 ),
@@ -168,7 +183,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ],
                 ),
-                vSpace(space * 2),
+                vSpace(space * 1.5),
                 Row(
                   children: [
                     Text(
@@ -202,4 +217,17 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
+//   Future signInUsers() async {
+//     Helpers.showAppDialog(context: context);
+//     try {
+//       await FirebaseAuth.instance.signInWithEmailAndPassword(
+//         email: emailController.text.trim(),
+//         password: passwordController.text.trim(),
+//       );
+//     } on FirebaseAuthException catch (e) {
+//       print(e);
+//     }
+//     navigatorKey.currentState!.popUntil((route) => route)
+//   }
 }
