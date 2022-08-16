@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:slope_chat_app/utilis/designs/colors.dart';
 import 'package:slope_chat_app/utilis/designs/styles.dart';
 
 class Helpers {
@@ -66,7 +67,9 @@ class Helpers {
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [CircularProgressIndicator()],
+                        children: const [CircularProgressIndicator(
+                          backgroundColor: kPrimaryColor,
+                        )],
                       )
                     ],
                   ),
