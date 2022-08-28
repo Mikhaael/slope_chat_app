@@ -30,9 +30,10 @@ primaryButton({
             top: topPadding,
             bottom: bottomPadding),
         decoration: BoxDecoration(
-            color: fillColor,
-            border: Border.all(color: kPrimaryColor, width: 3),
-            borderRadius: BorderRadius.circular(5)),
+          color: fillColor,
+          border: Border.all(color: kPrimaryColor, width: 3),
+          borderRadius: BorderRadius.circular(5),
+        ),
         child: Row(
           mainAxisAlignment: viewAlignment,
           children: [
